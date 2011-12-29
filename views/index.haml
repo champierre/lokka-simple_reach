@@ -1,0 +1,12 @@
+- content_for :head_last do
+  <style type="text/css"><!-- div.field textarea { height:200px; } --></style>
+%h2 Simple Reach
+%form{:action => '/admin/plugins/simple_reach', :method => 'post'}
+  %input{:type => 'hidden', :name => '_method', :value => 'put'}
+  .field
+    %label{:for => 'simple_reach_code'} Paste your Simple Reach code
+    %div Tips: It is better to specify the location of the content like <i>__spr_config = { pid: "123abc..", loc: ".entry" };</i> (<a href="http://simplereach.com/docs/publisher/slide_options" target="_blank">Simple Reach Documentation</a>)
+    %br
+    %textarea{:id => 'simple_reach_code', :name => 'simple_reach_code', :value => Option.simple_reach_code}= Option.simple_reach_code
+  .field
+    %input{:type => 'submit', :value => t.edit}
